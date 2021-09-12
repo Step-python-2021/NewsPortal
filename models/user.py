@@ -1,12 +1,12 @@
-from  config import mysql
+from config import mysql
 
 
 class User(object):
 
     @staticmethod
-    def register(self) -> None:
+    def register() -> None:
         pass
 
     @staticmethod
-    def login(self) -> None:
+    def login() -> None:
         pass
