@@ -1,0 +1,17 @@
+{% extends 'base/master.html' %}
+
+{% block title %}Отчет о регистрации{% endblock %}
+
+{% block content %}
+<div class="main-box">
+    <h2>Отчет о регистрации</h2>
+  <hr>
+  <div class="info-box" style="background-color: whitesmoke; padding: 20px; color: navy;">
+    Отчет о регистрации ... <br>
+    {{ context['login'] }} <br>
+    {{ context['pass1'] }} <br>
+    {{ context['pass2'] }} <br>
+    {{ context['email'] }} <br>
+  </div>
+</div>
+{% endblock %}
