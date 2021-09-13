@@ -17,5 +17,5 @@ class User(object):
         connection.close()
 
     @staticmethod
-    def login() -> None:
+    def login(login, password) -> None:
         pass
