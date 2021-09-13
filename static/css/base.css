@@ -32,3 +32,9 @@ nav a {
 header {
     padding-top: 30px;
 }
+
+.info-box {
+    color: navy;
+    background-color: whitesmoke;
+    padding: 20px;
+}

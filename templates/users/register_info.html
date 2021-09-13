@@ -6,12 +6,11 @@
 <div class="main-box">
     <h2>Отчет о регистрации</h2>
   <hr>
-  <div class="info-box" style="background-color: whitesmoke; padding: 20px; color: navy;">
-    Отчет о регистрации ... <br>
-    {{ context['login'] }} <br>
-    {{ context['pass1'] }} <br>
-    {{ context['pass2'] }} <br>
-    {{ context['email'] }} <br>
+  <div class="info-box">
+    <span style="color: {{ context.mess_color }}">
+      {{ context.message }}
+    </span>
+    <br>
   </div>
 </div>
 {% endblock %}
