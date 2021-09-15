@@ -1,3 +1,5 @@
+from werkzeug.security import check_password_hash
+
 from config import mysql
 
 
@@ -17,5 +19,22 @@ class User(object):
         connection.close()
 
     @staticmethod
-    def login(login, password) -> None:
-        pass
+    def auth(login, password):
+        connection = mysql.get_db()
+        cursor = mysql.get_db().cursor()  # create cursor
+        sql_query = f"""
+            select * from users 
+            where login = '{login}';
+        """
+        cursor.execute(sql_query)
+        result = cursor.fetchall()
+        cursor.close()
+        connection.close()
+
+        print(result)
+        if len(result) > 0:
+            client_pass = result[0][2]
+            if check_password_hash(client_pass, password):
+                return True
+            else:
+                return False

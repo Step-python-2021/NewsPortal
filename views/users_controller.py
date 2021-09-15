@@ -47,6 +47,7 @@ class UsersController(object):
                 'mess_color': mess_color
             })
 
+
     @staticmethod
     @app.route('/users/login', methods=['GET', 'POST'])
     def login():
@@ -61,12 +62,13 @@ class UsersController(object):
             rem = request.form.get('rem')
 
             password = generate_password_hash(pass1)
-            if User.auth(login, password) == True:
+
+            if User.auth(login, pass1) == True:
                 session['user'] = login  # Регистрация пользователя в сессии
                 if rem == 'yes':
                     response = make_response('setting cookie user')
                     response.set_cookie('user', login, max_age=7*24*3600)
-                message = 'You entered'
+                message = 'You entered as'
                 mess_color = 'green'
             else:
                 message = 'Wrong login or password!'
@@ -74,5 +76,5 @@ class UsersController(object):
 
             return render_template('users/login_info.html', context={
                 'message': message,
-                'mess_color': mess_color
+                'mess_color': mess_color,
             })
