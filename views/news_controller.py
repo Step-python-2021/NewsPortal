@@ -1,4 +1,4 @@
-from flask import render_template
+from flask import render_template, session
 from config import app
 
 
@@ -7,7 +7,10 @@ class NewsController(object):
     @staticmethod
     @app.route('/news/create')
     def create():
-        return render_template('news/create.html')
+        if 'user' in session and session['user'] == 'test3':
+            return render_template('news/create.html')
+        else:
+            return render_template('access/page403.html')
 
     @staticmethod
     @app.route('/news/delete')

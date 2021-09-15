@@ -15,6 +15,7 @@ class UsersController(object):
     @staticmethod
     @app.route('/users/logout')
     def logout():
+        session.pop('user', None)
         return render_template('users/logout.html')
 
     @staticmethod
@@ -60,8 +61,7 @@ class UsersController(object):
             pass1 = request.form.get('pass1')
             rem = request.form.get('rem')
 
-            password = generate_password_hash(pass1)
-            if User.auth(login, password) == True:
+            if User.auth(login, pass1):
                 session['user'] = login  # Регистрация пользователя в сессии
                 if rem == 'yes':
                     response = make_response('setting cookie user')
