@@ -7,20 +7,24 @@
     <h2>Добавление новости</h2>
      <form action="/news/create" method="post" enctype="multipart/form-data">
         <p>
-            <label for="login">Login:</label><br>
-            <input type="text" id="login" name="login" class="inp" required>
+            <label for="title">Заголовок:</label><br>
+            <input type="text" id="title" name="title" class="inp" required>
         </p>
         <p>
-            <label for="pass1">Password:</label><br>
-            <input type="password" id="pass1" name="pass1" class="inp" required>
+            <label for="about">Описание:</label><br>
+            <textarea name="about" id="about" rows="5" class="inp" required></textarea>
+        </p>
+         <p>
+            <label for="content">Контент:</label><br>
+            <textarea name="content" id="content" rows="10" class="inp" required></textarea>
+        </p>
+         <p>
+            <label for="image">Изображение:</label><br>
+            <input type="file" id="image" name="image" class="inp" required>
         </p>
         <p>
-            <label for="pass2">Re password:</label><br>
-            <input type="password" id="pass2" name="pass2" class="inp" required>
-        </p>
-        <p>
-            <label for="email">E-Mail</label>
-            <input type="email" id="email" name="email" class="inp" required>
+            <label for="status">Статус:</label><br>
+            <input type="text" id="status" name="status" class="inp" required>
         </p>
         <p style="text-align: center; margin-top: 25px">
             <input type="submit" value="Submit" class="btn btn-success my-btn">
@@ -28,4 +32,25 @@
         </p>
     </form>
 </div>
+<style>
+    form {
+        border: 1px solid silver;
+        width: 75%;
+        margin: 20px auto;
+        border-radius: 15px;
+        padding: 15px 30px;
+        background-color: whitesmoke;
+        color: grey;
+        text-align: left;
+    }
+    .inp {
+        width: 99%;
+        padding: 4px;
+    }
+    .my-btn {
+        width: 120px;
+        padding: 3px;
+        border-radius: 10px;
+    }
+</style>
 {% endblock %}
